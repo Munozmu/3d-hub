@@ -1,50 +1,11 @@
-.image1 {
-	position:fixed;
-	width:100%;
-	height: 100%;
-	z-index: 1;
-	opacity:0.6;
-	
-}
 
-.accueil {
-	position:fixed;
-	z-index: 2;
-	font-size: 250%;
-	right: 28%;
+.container {
+	margin-top:20%;
+	transform:translateY(-50%);
 	color: white;
 }
 
-
-.se_connecter {
-	position:fixed;
-	z-index: 2;
-	font-size: 250%;
-	right: 13%;
-	color: white;
-
-}
-
-.s_inscrire {
-	position:fixed;
-	z-index: 2;
-	font-size: 250%;
-	right: 2%;
-	color: white;
-
-}
-
-.titre {
-	position:fixed;
-	z-index: 2;
-	font-size: 500%;
-	top:32%;
-	left: 28%;
-	color: white;
-
-}
-
-}
 body {
-	background-color: black!important;
+	background-image: url("https://www.reviewbox.fr/wp-content/uploads/2020/06/0-Impresora-3d-92230252_m.jpg");
+	background-size: cover;
 }
