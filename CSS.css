@@ -9,10 +9,25 @@
 	position:fixed;
 	z-index: 2;
 	font-size: 300%;
-	margin-left: 2%;
+	right: 29%;
+	color: white;
+}
+
+
+.se_connecter {
+	position:fixed;
+	z-index: 2;
+	font-size: 300%;
+	right: 13%;
 	color: white;
 
+}
 
-
+.s_inscrire {
+	position:fixed;
+	z-index: 2;
+	font-size: 300%;
+	right: 2%;
+	color: white;
 
 }
