@@ -2,11 +2,11 @@
 .container {
 	margin-top:18%;
 	color: white;
-	z-index: 1;
+	z-index: 2;
 }
 
 .accueil {
-	position:fixed;
+	position:absolute;
 	top:3%;
 	right:3%;
 	color:white;
@@ -14,7 +14,28 @@
 	font-size: 180%;
 
 }
+.titre {
+	position:absolute;
+	left:3%;
+	top:3%;
+	color:white;
+	z-index: 2;
+	font-size: 300%;
+	font-style: italic;
+	font-family:arial black;
+
+}
 body {
-	background-image: url("https://www.reviewbox.fr/wp-content/uploads/2020/06/0-Impresora-3d-92230252_m.jpg");
+	background-color: black!important;
+	background-image: url("image.png");
 	background-size: cover;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
 }
