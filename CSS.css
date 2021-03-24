@@ -2,8 +2,18 @@
 .container {
 	margin-top:18%;
 	color: white;
+	z-index: 1;
 }
 
+.accueil {
+	position:fixed;
+	top:3%;
+	right:3%;
+	color:white;
+	z-index: 2;
+	font-size: 200%;
+
+}
 body {
 	background-image: url("https://www.reviewbox.fr/wp-content/uploads/2020/06/0-Impresora-3d-92230252_m.jpg");
 	background-size: cover;
