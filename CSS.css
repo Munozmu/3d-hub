@@ -25,6 +25,13 @@
 	font-family:arial black;
 
 }
+.alert {
+	z-index: 3;
+
+
+
+}
+
 body {
 	background-color: black!important;
 	background-image: url("image.png");
