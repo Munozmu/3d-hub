@@ -5,6 +5,7 @@
 	z-index: 2;
 }
 
+
 .accueil {
 	position:absolute;
 	top:3%;
@@ -26,6 +27,7 @@
 
 }
 .alert {
+	position:absolute;
 	z-index: 3;
 	color:black!important;
 
@@ -47,3 +49,32 @@ body {
     position: absolute;
     z-index: -1;
 }
+
+
+     
+a {
+    text-decoration: none;
+    color: #6E052E;
+}
+ 
+#barre {
+    width: 100%;
+    background:yellow;
+    padding:8px 0;
+    font-family:  "Trebuchet MS";
+    text-align: center;
+    font-size:11px;
+    margin-top:-50px;
+    border-bottom: 10px solid #2e1b27;
+}
+ 
+#fermer {
+    background-image: url("fermer.png");
+    width: 18px;
+    height: 18px;
+    display: block;
+    cursor: pointer;
+    float:right;
+    margin-right:30px;
+}
+ 

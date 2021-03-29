@@ -1,55 +1,96 @@
 <!doctype html>
 <html lang="fr">
-<link rel="stylesheet" href="CSS.css" /><!--Nom du fichier CSS à joindre-->
+<link rel="stylesheet" href="CSS.css" />
+<!--Nom du fichier CSS à joindre-->
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+  <title>Page d'Acceuil</title>
+
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" media="screen" href="css/style.css" />-->
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 
-    <title>Page d'Acceuil</title>
+    <script type="text/javascript">
+
+      $(document).ready(function () {
+
+        //au chargement de la page je règle le marginTop de #barre à 0 (il etait fixé à -50px dans le css) en 500ms
+
+        $('#barre').animate({
+          marginTop: "0",
+        }, 500);
+
+        //au clic sur #fermer qui est la croix j'anime le marginTop de #barre à -30px pour le faire remonter et laisser le border bottom apparent
+
+        $("#fermer").mousedown(function () {
+
+          $('#barre').animate({
+            marginTop: "-30px",
+          }, 500);
+
+        });
+      });
+    </script>
   </head>
-  <body>
-   
 
-    <div class="accueil">Accueil&nbsp;&nbsp;Se connecter&nbsp;&nbsp;S'inscrire</div>
-    <h1 class="titre">3DHUB</h1>
-
-    <div class="alert alert-light alert-dismissible fade show" role="alert">
-      <strong>Ce site web utilise des cookies pour le bon fonctionnement de celui-ci. <a href="legals/legals-mentions.html">En savoir plus</a>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+  </div>
 
 
-     <div class="container">
-      <div class="row mt-5">
-        <div class="col-12 text-center">
-          <h1>Que recherchez-vous ?</h1>
-        </div>
-      </div>
-      <div class="row mt-5">
-        <div class="col-6 text-center">
-          <h3>Je veux proposer mes services d'impression</h3>
-          <a href="" class="btn btn-primary">Proposer mes services</a>
-        </div>
-        <div class="col-6 text-center">
-          <h3>Je cherche à imprimer une pièce spécifique.</h3>
-          <a href="" class="btn btn-primary">Faire une demande</a>
-        </div>
+<body>
+
+  <div id="barre">
+    Nous utilisons des cookies pour le bon fonctionnement de celui-ci. <a href="./legals/legals-mentions.html">En savoir
+      plus</a>
+    <div id="fermer"></div>
+  </div>
+
+  <div class="accueil">Accueil&nbsp;&nbsp;Se connecter&nbsp;&nbsp;S'inscrire</div>
+  <h1 class="titre">3DHUB</h1>
+
+
+
+
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <h1>Que recherchez-vous ?</h1>
       </div>
     </div>
-  
+    <div class="row mt-5">
+      <div class="col-6 text-center">
+        <h3>Je veux proposer mes services d'impression</h3>
+        <a href="" class="btn btn-primary">Proposer mes services</a>
+      </div>
+      <div class="col-6 text-center">
+        <h3>Je cherche à imprimer une pièce spécifique.</h3>
+        <a href="" class="btn btn-primary">Faire une demande</a>
+      </div>
+    </div>
+  </div>
 
- 
 
-    
 
-    
-    
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
-  </body>
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+
+</body>
+
 </html>
