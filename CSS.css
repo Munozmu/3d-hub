@@ -1,10 +1,4 @@
 
-.container {
-    position: fixed;
-	margin-top:18%;
-	color: white;
-	z-index: 2;
-}
 
 
 .accueil {
@@ -27,16 +21,21 @@
 	font-family:arial black;
 
 }
-.alert {
-	position:absolute;
-	z-index: 3;
-	color:black!important;
 
-
-
+.question {
+        z-index: 2;
+        position:absolute;
+        color:white;
+        font-size:200%;
+        font-family: arial black;
+        top: 50%; left: 50%; /* à 50%/50% du parent référent */
+        transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+      
 }
 
+
 body {
+    z-index: -1;
 	background-color: black!important;
 	background-image: url("image.png");
 	background-size: cover;
@@ -53,12 +52,8 @@ body {
 
 
      
-a {
-    text-decoration: none;
-    color: #6E052E;
-}
- 
 #barre {
+    z-index: 4;
     width: 100%;
     background:#BFD626;
     padding:8px 0;
