@@ -63,7 +63,7 @@
 body {
     z-index: -1;
 	background-color: black!important;
-	background-image: url("background.png");
+	background-image: url("images/background.png");
 	background-size: cover;
 	background-repeat: no-repeat;
     background-attachment: fixed;
@@ -92,7 +92,7 @@ body {
 }
  
 #fermer {
-    background-image: url("croix\ noire.png");
+    background-image: url("images/croix\ noire.png");
     width: 22px;
     height: 22px;
     display: block;
@@ -102,6 +102,6 @@ body {
 }
  
 #fermer:hover {
-        background: url("croix\ rouge.png");
+        background: url("images/croix\ rouge.png");
     }
     
