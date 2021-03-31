@@ -63,18 +63,18 @@
     color:white;
     font-size: 150%;
     font-family: arial black;
-    top: 55%; right: 10%; 
+    top: 55%; left:72%; 
 }
 .bouton1 {
     position:fixed;
     top:70%;
-    left:12%;
+    left:10%;
     font-family: arial black;
 }
 .bouton2 {
     position:fixed;
     top:70%;
-    right:16%;
+    left:72%;
     font-family: arial black;
 }
 
