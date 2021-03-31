@@ -1,23 +1,36 @@
-.container {
-	margin-top:18%;
-	color: white;
-	z-index: 2;
-
 
 .accueil {
 	position:absolute;
 	top:3%;
 	right:3%;
-	color:white;
 	z-index: 2;
 	font-size: 180%;
+
+}
+
+.hypertext {
+    text-decoration: none;
+    color:white
+    
+}
+.hypertext:hover{
+    color: red;
+ }
+
+
+.HUB {
+    text-decoration: none;
+    color: white;
+}
+.HUB:hover {
+    color:red;
+
 
 }
 .titre {
 	position:absolute;
 	left:3%;
 	top:3%;
-	color:white;
 	z-index: 2;
 	font-size: 300%;
 	font-style: italic;
@@ -82,18 +95,17 @@ body {
 }
 
 
-
      
 #barre {
-    position: absolute;
-    z-index: 3;
+    position: fixed;
+    z-index: 10;
     width: 100%;
     background:white;
-    padding:10px 0;
+    padding:0.25% 0;
     font-family:  "Trebuchet MS";
     text-align: center;
-    font-size:15px;
-    margin-top:-50px;
+    font-size:100%;
+    margin-top:-2%;
 
 }
  
@@ -104,19 +116,10 @@ body {
     display: block;
     cursor: pointer;
     float:right;
-    margin-right:30px;
+    margin-right:3%;
 }
  
 #fermer:hover {
         background: url("images/croix\ rouge.png");
     }
     
-
-a{
-	color: white;
-	text-decoration: none;
-}
-
-a:hover{
-	color: orange;
-}

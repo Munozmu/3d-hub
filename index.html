@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="fr">
-
 <link rel="stylesheet" href="CSS.css" />
 <!--Nom du fichier CSS à joindre-->
 
@@ -20,26 +19,11 @@
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 
-
     <script type="text/javascript">
 
       $(document).ready(function () {
 
         //au chargement de la page je règle le marginTop de #barre à 0 (il etait fixé à -50px dans le css) en 500ms
-
-    <link rel="stylesheet" href="CSS.css" /><!--Nom du fichier CSS à joindre-->
-    
-    <title>Page d'Acceuil</title>
-  </head>
-  <body>
-   
-    <div class="accueil">
-      <a href="">Accueil</a>
-      <a href="">Se connecter</a>
-      <a href="">S'inscire</a>
-    </div>
-    <h1 class="titre">3DHUB</h1>
-
 
         $('#barre').animate({
           marginTop: "0",
@@ -50,7 +34,7 @@
         $("#fermer").mousedown(function () {
 
           $('#barre').animate({
-            marginTop: "-60px",
+            marginTop: "-10%",
           }, 500);
 
         });
@@ -58,25 +42,8 @@
     </script>
   </head>
 
-    <!-- <img class="image1" src="Image.jpg"> -->
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-          <h1>Que recherchez-vous ?</h1>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-6 text-center">
-          <h3>Je veux proposer mes services d'impression</h3>
-          <a href="" class="btn btn-primary">Proposer mes services</a>
-        </div>
-        <div class="col-6 text-center">
-          <h3>Je cherche à imprimer une pièce spécifique.</h3>
-          <a href="" class="btn btn-primary">Proposer mes services</a>
-        </div>
-      </div>
-    </div>
-    
+  </div>
+
 
 <body>
 
@@ -86,8 +53,12 @@
     <div id="fermer"></div>
   </div>
 
-  <div class="accueil">Accueil&nbsp;&nbsp;Se connecter&nbsp;&nbsp;S'inscrire</div>
-  <h1 class="titre">3DHUB</h1>
+  <div class="accueil">
+  <a class="hypertext" href="index.html">Accueil</a>&nbsp;&nbsp;
+  <a class="hypertext" href="login/login.html">Se connecter</a>&nbsp;&nbsp;
+  <a class="hypertext" href="login/register.html">S'inscrire</a>
+  </div>
+  <h1 class="titre"><a class="HUB" href="index.html">3DHUB</a></h1>
 
 
 
