@@ -1,3 +1,8 @@
+.container {
+	margin-top:18%;
+	color: white;
+	z-index: 2;
+
 
 .accueil {
 	position:absolute;
@@ -95,6 +100,7 @@ body {
 }
 
 
+
      
 #barre {
     position: fixed;
@@ -123,3 +129,12 @@ body {
         background: url("images/croix\ rouge.png");
     }
     
+
+a{
+	color: white;
+	text-decoration: none;
+}
+
+a:hover{
+	color: orange;
+}
