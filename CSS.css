@@ -2,31 +2,91 @@
 	margin-top:18%;
 	color: white;
 	z-index: 2;
-}
+
 
 .accueil {
 	position:absolute;
 	top:3%;
 	right:3%;
-	color:white;
 	z-index: 2;
 	font-size: 180%;
+
+}
+
+.hypertext {
+    text-decoration: none;
+    color:white
+    
+}
+.hypertext:hover{
+    color: red;
+ }
+
+
+.HUB {
+    text-decoration: none;
+    color: white;
+}
+.HUB:hover {
+    color:red;
+
 
 }
 .titre {
 	position:absolute;
 	left:3%;
 	top:3%;
-	color:white;
 	z-index: 2;
 	font-size: 300%;
 	font-style: italic;
 	font-family:arial black;
 
 }
+
+.question {
+        z-index: 2;
+        position:absolute;
+        color:white;
+        font-size:200%;
+        font-family: arial black;
+        top: 40%; left: 50%; /* à 50%/50% du parent référent */
+        transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+}
+       
+      
+.proposition1 {
+        z-index: 2;
+        position:absolute;
+        color:white;
+        font-size: 150%;
+        font-family: arial black;
+        top: 55%; left: 10%; 
+}
+.proposition2 {
+    z-index: 2;
+    position:absolute;
+    color:white;
+    font-size: 150%;
+    font-family: arial black;
+    top: 55%; right: 10%; 
+}
+.bouton1 {
+    position:fixed;
+    top:70%;
+    left:12%;
+    font-family: arial black;
+}
+.bouton2 {
+    position:fixed;
+    top:70%;
+    right:14%;
+    font-family: arial black;
+}
+
 body {
+    z-index: -1;
 	background-color: black!important;
-	background-image: url("image.png");
+	background-image: url("images/background.png");
 	background-size: cover;
 	background-repeat: no-repeat;
     background-attachment: fixed;
@@ -38,6 +98,37 @@ body {
     position: absolute;
     z-index: -1;
 }
+
+
+
+     
+#barre {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    background:white;
+    padding:0.25% 0;
+    font-family:  "Trebuchet MS";
+    text-align: center;
+    font-size:100%;
+    margin-top:-2%;
+
+}
+ 
+#fermer {
+    background-image: url("images/croix\ noire.png");
+    width: 22px;
+    height: 22px;
+    display: block;
+    cursor: pointer;
+    float:right;
+    margin-right:3%;
+}
+ 
+#fermer:hover {
+        background: url("images/croix\ rouge.png");
+    }
+    
 
 a{
 	color: white;
