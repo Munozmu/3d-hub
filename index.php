@@ -47,12 +47,19 @@
 
 <body>
 
-  <div id="barre">
-    Nous utilisons des cookies pour le bon fonctionnement du site. <a target="_blank" class="ensavoirplus" href="legals/Mentions légales.pdf">En savoir
-      plus</a>
-    <div id="fermer"></div>
-  </div>
+<?php
+if ( !isset( $_COOKIE['3DHUB'] ) )
+{
+  $cookie_name = "3DHUB";
+  $cookie_value = "bandeau";
+  setcookie($cookie_name, $cookie_value, time () + (86400 * 30), "/");
+    
+  
+     echo   '<div id="barre">Nous utilisons des cookies pour le bon fonctionnement du site. <a target="_blank" class="ensavoirplus" href="legals/Mentions légales.pdf">En savoir plus</a> <div id="fermer"></div> </div>';
 
+
+}
+?>
   <div class="accueil">
   <a class="hypertext" href="index.php">Accueil</a>&nbsp;&nbsp;
   <a class="hypertext" href="login/login.php">Se connecter</a>&nbsp;&nbsp;
