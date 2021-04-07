@@ -16,7 +16,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="../../index.html">3DHUB</a>
+      <a class="navbar-brand" href="../../index.php">3DHUB</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,16 +24,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="home.html">Accueil</a>
+            <a class="nav-link active" aria-current="page" href="home.php">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="suggestion.html">Propositions</a>
+            <a class="nav-link" href="suggestion.php">Propositions</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="messaging.html">Messagerie</a>
+            <a class="nav-link" href="messaging.php">Messagerie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="favorites.html">Favoris</a>
+            <a class="nav-link" href="favorites.php">Favoris</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">Se déconnecter</a>
@@ -46,14 +46,8 @@
   <div class="container">
     <div class="row mt-3">
       <div class="col-12">
-      <h1>Page d'accueil createurs</h1>
+      <h1>Page d'accueil makers</h1>
     </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <a href="" class="btn btn-success">Créer un nouvel appel d'offre</a>
-      </div>
-      <div class="col-8"></div>
     </div>
     <div class="row mt-3">
       <div class="col-3">
@@ -62,8 +56,37 @@
           <div class="card-body">
             <h5 class="card-title">Impression d'un pièce auto</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Modifier</a>
-            <a href="" class="btn btn-danger">Supprimer</a>
+            <a href="#" class="btn btn-primary">Faire une proposition</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card">
+          <img src="https://cdn.shopify.com/s/files/1/1339/4265/products/EcranFormationaDistance.jpg?v=1601973920" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Une éponge</h5>
+            <p class="card-text">Bonjour, j'aimerais imprimer une éponge en 3D.</p>
+            <a href="#" class="btn btn-primary">Faire une proposition</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card">
+          <img src="https://cdn.shopify.com/s/files/1/1339/4265/products/EcranFormationaDistance.jpg?v=1601973920" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Faire une proposition</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="card">
+          <img src="https://cdn.shopify.com/s/files/1/1339/4265/products/EcranFormationaDistance.jpg?v=1601973920" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Faire une proposition</a>
           </div>
         </div>
       </div>

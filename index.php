@@ -54,11 +54,11 @@
   </div>
 
   <div class="accueil">
-  <a class="hypertext" href="index.html">Accueil</a>&nbsp;&nbsp;
-  <a class="hypertext" href="login/login.html">Se connecter</a>&nbsp;&nbsp;
-  <a class="hypertext" href="login/register.html">S'inscrire</a>
+  <a class="hypertext" href="index.php">Accueil</a>&nbsp;&nbsp;
+  <a class="hypertext" href="login/login.php">Se connecter</a>&nbsp;&nbsp;
+  <a class="hypertext" href="login/register.php">S'inscrire</a>
   </div>
-  <h1 class="titre"><a class="HUB" href="index.html">3DHUB</a></h1>
+  <h1 class="titre"><a class="HUB" href="index.php">3DHUB</a></h1>
 
 
 
@@ -66,8 +66,8 @@
 <div class="question">Que recherchez vous ?</div>
 <div class="proposition1">Je veux proposer mes<br>services d'impressions</div>
 <div class="proposition2">Je cherche à imprimer une<br>pièce spécifique</div>
-<div class="bouton1" ><a class="btn btn-primary" href="pages/makers/home.html">Proposer mes services</a></div>
-<div class="bouton2" ><a class="btn btn-primary" href="pages/creators/home.html">Faire une demande</a></div>
+<div class="bouton1" ><a class="btn btn-primary" href="pages/makers/home.php">Proposer mes services</a></div>
+<div class="bouton2" ><a class="btn btn-primary" href="pages/creators/home.php">Faire une demande</a></div>
 
 
 

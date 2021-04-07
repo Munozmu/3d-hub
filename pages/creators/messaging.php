@@ -16,7 +16,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">3DHUB</a>
+      <a class="navbar-brand" href="../../index.php">3DHUB</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,16 +24,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="home.html">Accueil</a>
+            <a class="nav-link" href="home.php">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="suggestion.html">Propositions</a>
+            <a class="nav-link" href="suggestion.php">Propositions</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="messaging.html">Messagerie</a>
+            <a class="nav-link active" aria-current="page" href="messaging.php">Messagerie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="favorites.html">Favoris</a>
+            <a class="nav-link" href="favorites.php">Favoris</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">Se déconnecter</a>
@@ -46,32 +46,23 @@
   <div class="container">
     <div class="row mt-3">
       <div class="col-12">
-        <h1>Page favoris createurs</h1>
+        <h1>Page messagerie createurs</h1>
       </div>
     </div>
     <div class="row mt-3">
-      <div class="col-3">
+      <div class="col-12">
         <div class="card">
-          <img src="https://cdn.shopify.com/s/files/1/1339/4265/products/EcranFormationaDistance.jpg?v=1601973920"
-            class="card-img-top" alt="...">
+          <div class="card-header">
+            @Lagiac
+          </div>
           <div class="card-body">
-            <h4>Titre de l'annonce</h4>
-            <div class="btn btn-primary">Consulter</div>
-            <div class="btn btn-danger">Supprimer</div>
+            <blockquote class="blockquote mb-0">
+              <p>Bonjour.</p>
+              <footer class="blockquote-footer">il y a 12 min</footer>
+            </blockquote>
           </div>
         </div>
       </div>
-      <div class="col-3">
-        <div class="card">
-          <img src="https://cdn.shopify.com/s/files/1/1339/4265/products/EcranFormationaDistance.jpg?v=1601973920"
-            class="card-img-top" alt="...">
-          <div class="card-body">
-            <h4>Titre de l'annonce</h4>
-            <div class="btn btn-primary">Consulter</div>
-            <div class="btn btn-danger">Supprimer</div>
-          </div>
-        </div>
-      </div> 
     </div>
   </div>
 

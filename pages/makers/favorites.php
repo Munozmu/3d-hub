@@ -16,7 +16,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">3DHUB</a>
+      <a class="navbar-brand" href="../../index.php">3DHUB</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,16 +24,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="home.html">Accueil</a>
+            <a class="nav-link" href="home.php">Accueil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="suggestion.html">Propositions</a>
+            <a class="nav-link" href="suggestion.php">Propositions</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="messaging.html">Messagerie</a>
+            <a class="nav-link" href="messaging.php">Messagerie</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="favorites.html">Favoris</a>
+            <a class="nav-link active" aria-current="page" href="favorites.php">Favoris</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="">Se déconnecter</a>
