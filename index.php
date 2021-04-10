@@ -4,6 +4,8 @@
 <!--Nom du fichier CSS à joindre-->
 
 <head>
+
+<link rel="icon" href="images/icon.png" />
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
