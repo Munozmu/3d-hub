@@ -55,6 +55,7 @@
 
 
     echo   '<div id="barre">Nous utilisons des cookies pour le bon fonctionnement du site. <a target="_blank" class="ensavoirplus" href="legals/Mentions légales.pdf">En savoir plus</a> <div id="fermer"></div> </div>';
+    
   }
   ?>
   <div class="accueil">
@@ -69,6 +70,8 @@
   <div class="proposition2">Je cherche à imprimer une<br>pièce spécifique</div>
   <div class="bouton1"><a class="btn btn-primary" href="./login/register.php">Proposer mes services</a></div>
   <div class="bouton2"><a class="btn btn-primary" href="./login/register.php">Faire une demande</a></div>
+
+  <div class="test">  Test    </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 

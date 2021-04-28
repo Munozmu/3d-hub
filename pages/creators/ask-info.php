@@ -61,14 +61,57 @@ $donnees = mysqli_fetch_assoc($response);
             </div>
             <div class="col-12">
                 <h4>Description :</h4>
-                <p><?php echo $donnees['description']; ?></p>
+                <p class="m-5"><?php echo $donnees['description']; ?></p>
             </div>
         </div>
 
         <div class="row">
             <div class="col-12">
-                <?php include("../../stl/viewer.php")?>
+            <h4>Pièce :</h4>
+                <div id="../../stl/stl/trépied.STL" style="margin-top: 10px; height: 500px; border: 1px gray solid;" class="m-3"></div>
+                <a href="../../stl/stl/trépied.STL"><button type="button" class="btn btn-primary">Télécharger le .STL de la pièce</button></a>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <a href="" class="btn btn-success">Faire une proposition</a>
+                    </div>
+                    <div class="col-6"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="height: 200px;"></div>
     </div>
+
+
+
+    <script src="../../stl/stl_viewer.min.js"></script>
+    <script>
+        var stl_viewer = new StlViewer(
+            document.getElementById("../../stl/stl/trépied.STL"), {
+                models: [{
+                    id: 1,
+                    filename: "stl/trépied.STL"
+                }]
+            }
+        );
+        var stl_viewer = new StlViewer(
+            document.getElementById("../../stl/stl/foureau.STL"), {
+                models: [{
+                    id: 2,
+                    filename: "stl/foureau.STL"
+                }]
+            }
+        );
+    </script><!-- RTFM, Doc du plugin : https://www.viewstl.com/plugin/-->
+</body>
+
+</html>
+</div>
+</div>
+</div>
 </body>

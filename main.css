@@ -29,11 +29,11 @@
 }
 .ensavoirplus{
     text-decoration: none;
-    color: black;
+    color: red;
 
 }
 .ensavoirplus:hover{
-    color:red;
+    color:black;
 
 
 }
@@ -86,6 +86,14 @@
     top:70%;
     left:72%;
     font-family: arial black;
+}
+.test {
+    z-index: 2;
+    position:fixed;
+    color:white;
+    font-size:200%;
+    top:50%;
+  
 }
 
 body {
