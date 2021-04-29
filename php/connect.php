@@ -1,6 +1,6 @@
 <?php
-define ('SERVEUR', "localhost");
-define ('LOGIN', "root2");
+define ('SERVEUR', "NSIBB");
+define ('LOGIN', "root");
 define ('MDP', "");
-define ('BDD', "e15");
+define ('BDD', "E15");
 ?>
