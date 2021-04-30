@@ -63,7 +63,7 @@ $info = mysqli_fetch_assoc($req);
                             </div>
                             <div class="modal-body">
 
-                                <form method="post">
+                                <form method="POST" enctype="multipart/form-data">
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Titre de la demande</label>
                                         <input type="text" name="title" class="form-control">
@@ -72,7 +72,13 @@ $info = mysqli_fetch_assoc($req);
                                         <label for="exampleInputPassword1" class="form-label">Description</label>
                                         <textarea class="form-control" type="text" name="descr" placeholder="Entrez une decription" id="floatingTextarea2" style="height: 100px"></textarea>
                                     </div>
-                                    <input type="submit" value="Ajouter">
+
+                                    <!-- envoi fichier -->
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="10000000000000000000000">
+                                    Fichier : <input type="file" name="image">
+                                    <p class="text-danger">Uniquement des .stl ou je te démarre</p>
+
+                                    <input type="submit" name="envoyer" value="Envoyer le fichier">
                                 </form>
 
                             </div>
@@ -88,17 +94,54 @@ $info = mysqli_fetch_assoc($req);
         <p>
             <?php
             if (isset($_POST['title'])) {
-                $mysqli = new mysqli(SERVEUR, LOGIN, MDP, BDD);
-                $mysqli->set_charset("utf8");
-                $requete = 'INSERT INTO `asks` (`id`, `title`, `description`, `user`) VALUES (NULL, "' . $_POST['title'] . '", "' . $_POST['descr'] . '", "' . $Pseudo . '");';
-                $resultat = $mysqli->query($requete);
-                if ($resultat)
-                    echo "<p>La demande a été ajoutée</p>";
-                else
-                    echo "<p>Erreur</p>";
+                if (isset($_FILES['image'])) {
+                    // Upload fichier
+                    $dossier = 'upload/';
+                    $fichier = basename($_FILES['image']['name']);
+                    $taille_maxi = 100000000000;
+                    $taille = filesize($_FILES['image']['tmp_name']);
+                    $extensions = array('.stl', '.STL');
+                    $extension = strrchr($_FILES['image']['name'], '.');
+                    //Début des vérifications de sécurité...
+                    if (!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
+                    {
+                        $erreur = 'Vous devez uploader un fichier de type .stl';
+                    }
+                    if ($taille > $taille_maxi) {
+                        $erreur = 'Le fichier est trop gros...';
+                    }
+                    if (!isset($erreur)) //S'il n'y a pas d'erreur, on upload
+                    {
+                        //On formate le nom du fichier ici...
+                        $fichier = strtr(
+                            $fichier,
+                            'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ',
+                            'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy'
+                        );
+                        $fichier = preg_replace('/([^.a-z0-9]+)/i', '-', $fichier);
+                        if (move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
+                        {
+                            echo 'Upload effectué avec succès !';
+                        } else //Sinon (la fonction renvoie FALSE).
+                        {
+                            echo 'Echec de l\'upload !';
+                        }
+                    } else {
+                        echo $erreur;
+                    }
+                    //  reste
+                    $mysqli = new mysqli(SERVEUR, LOGIN, MDP, BDD);
+                    $mysqli->set_charset("utf8");
+                    $requete = 'INSERT INTO `asks` (`id`, `title`, `description`, `user`, `stl_path`) VALUES (NULL, "' . $_POST['title'] . '", "' . $_POST['descr'] . '", "' . $Pseudo . '","' . $fichier . '");';
+                    $resultat = $mysqli->query($requete);
+                    if ($resultat)
+                        echo "<p>La demande a été ajoutée</p>";
+                    else
+                        echo "<p>Erreur</p>";
+                }
             }
             ?>
-            <?php  
+            <?php
             if (isset($_POST['requetSQL'])) {
                 $mysqli = new mysqli(SERVEUR, LOGIN, MDP, BDD);
                 $mysqli->set_charset("utf8");
@@ -135,7 +178,7 @@ $info = mysqli_fetch_assoc($req);
             ?>
                 <div class="col-3 mt-3">
                     <div class="card">
-                        <img src="https://cdn.shopify.com/s/files/1/1339/4265/products/EcranFormationaDistance.jpg?v=1601973920" class="card-img-top" alt="...">
+                        <img src="./upload/<?php echo $donnees['stl_path']; ?>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $donnees['title']; ?></h5>
                             <p class="card-text"><?php echo $donnees['description']; ?></p>

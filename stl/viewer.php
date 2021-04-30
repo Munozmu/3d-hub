@@ -24,7 +24,7 @@
         $js = "<script>";
         $html = "";
         $i = 1;
-        $di = new RecursiveDirectoryIterator('../../stl/');
+        $di = new RecursiveDirectoryIterator('./upload');
         foreach (new RecursiveIteratorIterator($di) as $filename => $file) {
             if (preg_match('~.(stl|STL)$~', $filename)) {
                 $html .= '<div class="col-sm-3">';

@@ -40,7 +40,7 @@ if (!isset($_COOKIE['3DHUB'])) {
   setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/");
 
   echo   '<div class="alert alert-primary" role="alert">Nous utilisons des cookies pour le bon fonctionnement du site. <a target="_blank" class="ensavoirplus" href="legals/Mentions légales.pdf">En savoir plus</a></div>';
-
+  echo   '<div id="barre">Nous utilisons des cookies pour le bon fonctionnement du site. <a target="_blank" class="ensavoirplus" href="legals/Mentions légales.pdf">En savoir plus</a> <div id="fermer"></div> </div>';
 }
 ?>
 

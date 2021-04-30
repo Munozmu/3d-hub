@@ -50,28 +50,13 @@ $info = mysqli_fetch_assoc($req);
             </div>
         </div>
 
-        <p>
-            <?php
-            if (isset($_POST['title'])) {
-                $mysqli = new mysqli(SERVEUR,LOGIN,MDP,BDD);
-                $mysqli->set_charset("utf8");
-                $requete = 'INSERT INTO `asks` (`id`, `title`, `description`, `user`) VALUES (NULL, "' . $_POST['title'] . '", "' . $_POST['descr'] . '", "' . $Pseudo . '");';
-                $resultat = $mysqli->query($requete);
-                if ($resultat)
-                    echo "<p>La demande a été ajoutée</p>";
-                else
-                    echo "<p>Erreur</p>";
-            }
-            ?>
-        </p>
-
         <!-- Affichage des demandes de l'utilisateur -->
         <div class="row mt-3">
             <?php
             include("../../php/connect.php");
             try {
                 // On se connecte à MySQL
-                $mysqli = mysqli_connect(SERVEUR,LOGIN,MDP,BDD);
+                $mysqli = mysqli_connect(SERVEUR, LOGIN, MDP, BDD);
             } catch (Exception $e) {
                 // En cas d'erreur, on affiche un message et on arrête tout
                 die('Erreur : ' . $e->getMessage());
@@ -80,7 +65,7 @@ $info = mysqli_fetch_assoc($req);
             // Si tout va bien, on peut continuer
 
             // On récupère tout le contenu de la table asks où l'utilisateur est le même
-            $reponse = mysqli_query($mysqli,'SELECT * FROM `asks`');
+            $reponse = mysqli_query($mysqli, 'SELECT * FROM `asks`');
             //$reponse = $bdd->query('SELECT * FROM `asks` WHERE USER = "' . $Pseudo . '"');
 
             // On affiche chaque entrée une à une
@@ -88,8 +73,8 @@ $info = mysqli_fetch_assoc($req);
             ?>
                 <div class="col-3 mt-3">
                     <div class="card">
-                        <img src="https://cdn.shopify.com/s/files/1/1339/4265/products/EcranFormationaDistance.jpg?v=1601973920" class="card-img-top" alt="...">
                         <div class="card-body">
+                            <div style="width: 100%; height: 200px;" class="mb-3" id="<?php echo $donnees['stl_path']; ?>"></div>
                             <h5 class="card-title"><?php echo $donnees['title']; ?></h5>
                             <p class="card-text"><?php echo $donnees['description']; ?></p>
                             <p class="text-muted">De : <?php echo $donnees['user']; ?></p>
@@ -97,6 +82,17 @@ $info = mysqli_fetch_assoc($req);
                         </div>
                     </div>
                 </div>
+                <script src="../../stl/stl_viewer.min.js"></script>
+                <script>
+                    var stl_viewer = new StlViewer(
+                        document.getElementById("<?php echo $donnees['stl_path']; ?>"), {
+                            models: [{
+                                id: 1,
+                                filename: "../pages/creators/upload/<?php echo $donnees['stl_path']; ?>"
+                            }]
+                        }
+                    );
+                </script>
             <?php
             }
 
@@ -104,6 +100,8 @@ $info = mysqli_fetch_assoc($req);
 
             ?>
         </div>
+
+
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 

@@ -68,8 +68,10 @@ $donnees = mysqli_fetch_assoc($response);
         <div class="row">
             <div class="col-12">
             <h4>Pièce :</h4>
-                <div id="../../stl/stl/trépied.STL" style="margin-top: 10px; height: 500px; border: 1px gray solid;" class="m-3"></div>
-                <a href="../../stl/stl/trépied.STL"><button type="button" class="btn btn-primary">Télécharger le .STL de la pièce</button></a>
+                <div id="<?php echo $donnees['stl_path']; ?>" style="margin-top: 10px; height: 500px; border: 1px gray solid;" class="m-3"></div>
+                <p><?php echo $donnees['stl_path']; ?></p>
+                <a href="../../stl/stl/trepied.STL"><button type="button" class="btn btn-primary">Télécharger le .STL de la pièce</button></a>
+                
             </div>
         </div>
 
@@ -88,22 +90,13 @@ $donnees = mysqli_fetch_assoc($response);
     </div>
 
 
-
     <script src="../../stl/stl_viewer.min.js"></script>
     <script>
         var stl_viewer = new StlViewer(
-            document.getElementById("../../stl/stl/trépied.STL"), {
+            document.getElementById("<?php echo $donnees['stl_path']; ?>"), {
                 models: [{
                     id: 1,
-                    filename: "stl/trépied.STL"
-                }]
-            }
-        );
-        var stl_viewer = new StlViewer(
-            document.getElementById("../../stl/stl/foureau.STL"), {
-                models: [{
-                    id: 2,
-                    filename: "stl/foureau.STL"
+                    filename: "../pages/creators/upload/<?php echo $donnees['stl_path']; ?>"
                 }]
             }
         );

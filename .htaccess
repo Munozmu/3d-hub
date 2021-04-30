@@ -1,8 +1,1 @@
 ErrorDocument 404 http://nsibb.ddns.net:8080/E15/error-404.php
-<IfModule mod_php5.c>
-	php_value upload_max_filesize 100M
-	php_value post_max_size 100M
-	php_value max_execution_time 600
-	php_value max_input_time 600
-	php_value memory_limit 256M
-</IfModule>

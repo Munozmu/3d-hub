@@ -44,7 +44,50 @@ $info=mysqli_fetch_assoc($req);
     <div class="row mt-3">
       <div class="col-12">
         <h1>Page d'accueil</h1>
-        <p>Rien ici, mais va faire un tour côté demandes</p>
+        <h2>Mes demandes</h2>
+        <div class="row mt-3">
+            <?php
+            include("../../php/connect.php");
+            try {
+                // On se connecte à MySQL
+                $mysqli = mysqli_connect(SERVEUR, LOGIN, MDP, BDD);
+            } catch (Exception $e) {
+                // En cas d'erreur, on affiche un message et on arrête tout
+                die('Erreur : ' . $e->getMessage());
+            }
+
+            // Si tout va bien, on peut continuer
+
+            // On récupère tout le contenu de la table asks où l'utilisateur est le même
+            $reponse = mysqli_query($mysqli, 'SELECT * FROM `asks` WHERE USER = "' . $Pseudo . '" LIMIT 3');
+            //$reponse = $bdd->query('SELECT * FROM `asks` WHERE USER = "' . $Pseudo . '"');
+            // On affiche chaque entrée une à une
+            while ($donnees = $reponse->fetch_array()) {
+            ?>
+                <div class="col-3 mt-3">
+                    <div class="card">
+                        <img src="https://cdn.shopify.com/s/files/1/1339/4265/products/EcranFormationaDistance.jpg?v=1601973920" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo $donnees['title']; ?></h5>
+                            <p class="card-text"><?php echo $donnees['description']; ?></p>
+                            <p class="text-muted">De : <?php echo $donnees['user']; ?></p>
+                            <a href="./ask-info.php?id=<?php echo $donnees['id']; ?>" class="btn btn-primary">Découvrir</a>
+                            <a class="btn btn-danger" href="./delete.php?id=<?php echo $donnees['id']; ?>">Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+            <?php
+            }
+
+            $reponse->close(); // Termine le traitement de la requête
+
+            ?>
+        </div>
+        <div class="col-3 mt-3">
+                    <div class="card">
+                        <a href="./masks.php" class="btn btn-primary">Voir toutes mes demandes</a>
+                    </div>
+                </div>
       </div>
     </div>
     
