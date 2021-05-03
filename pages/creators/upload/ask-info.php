@@ -77,50 +77,9 @@ $donnees = mysqli_fetch_assoc($response);
 
         <div class="row">
             <div class="col-12">
-                <h2>Meilleure proposition :</h2>
-                 <!-- Affichage des propositions existantes pour cette demande -->
-                 <div class="row mt-3">
-                    <?php
-                    include("../../php/connect.php");
-                    try {
-                        // On se connecte à MySQL
-                        $mysqli = mysqli_connect(SERVEUR, LOGIN, MDP, BDD);
-                    } catch (Exception $e) {
-                        // En cas d'erreur, on affiche un message et on arrête tout
-                        die('Erreur : ' . $e->getMessage());
-                    }
-
-                    // Si tout va bien, on peut continuer
-
-                    // On récupère tout le contenu de la table asks où l'utilisateur est le même
-                    $reponse = mysqli_query($mysqli, 'SELECT MIN(value), member FROM `proposition`');
-                    //$reponse = $bdd->query('SELECT * FROM `asks` WHERE USER = "' . $Pseudo . '"');
-
-                    // On affiche chaque entrée une à une
-                    while ($donnees = $reponse->fetch_array()) {
-                    ?>
-                        <div class="card mt-2">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-6">Valeur : <?php echo $donnees['value']; ?></div>
-                                    <div class="col-6"> Par : <?php echo $donnees['member']; ?></div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php
-                    }
-
-                    $reponse->close(); // Termine le traitement de la requête
-
-                    ?>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
                 <div class="row mt-5">
                     <div class="col-6">
                         <form method="POST" enctype="multipart/form-data">
-                        <p class="text-danger">Attention ! Votre proposition doit être inférieure à celle en cours.</p>
                             <div class="input-group mb-3">
                                 <input type="text" name="price_value" class="form-control" placeholder="Prix proposé" aria-label="Recipient's username" aria-describedby="basic-addon2">
                                 <span class="input-group-text" id="basic-addon2">€</span>
@@ -130,20 +89,6 @@ $donnees = mysqli_fetch_assoc($response);
                         </form>
                     </div>
                 </div>
-                <?php
-                if (isset($_POST['price_value'])) {
-
-                    //  reste
-                    $mysqli = new mysqli(SERVEUR, LOGIN, MDP, BDD);
-                    $mysqli->set_charset("utf8");
-                    $requete = 'INSERT INTO `proposition` (`id`, `id_ask`, `value`, `member`) VALUES (NULL, "' . $id . '", "' . $_POST['price_value'] . '", "' . $Pseudo . '");';
-                    $resultat = $mysqli->query($requete);
-                    if ($resultat)
-                        echo "<p>La proposition a été ajoutée</p>";
-                    else
-                        echo "<p>Erreur</p>";
-                }
-                ?>
             </div>
         </div>
 
@@ -170,7 +115,7 @@ $donnees = mysqli_fetch_assoc($response);
                     // On affiche chaque entrée une à une
                     while ($donnees = $reponse->fetch_array()) {
                     ?>
-                        <div class="card mt-2">
+                        <div class="card">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-6">Valeur : <?php echo $donnees['value']; ?></div>
@@ -189,7 +134,20 @@ $donnees = mysqli_fetch_assoc($response);
             <div class="row" style="height: 200px;"></div>
         </div>
 
+        <?php
+        if (isset($_POST['price_value'])) {
 
+            //  reste
+            $mysqli = new mysqli(SERVEUR, LOGIN, MDP, BDD);
+            $mysqli->set_charset("utf8");
+            $requete = 'INSERT INTO `proposition` (`id`, `id_ask`, `value`, `member`) VALUES (NULL, "' . $id . '", "' . $_POST['price_value'] . '", "' . $Pseudo . '");';
+            $resultat = $mysqli->query($requete);
+            if ($resultat)
+                echo "<p>La demande a été ajoutée</p>";
+            else
+                echo "<p>Erreur</p>";
+        }
+        ?>
 
 
         <script src="../../stl/stl_viewer.min.js"></script>

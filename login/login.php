@@ -78,12 +78,12 @@ session_start();//session_start() combiné à $_SESSION (voir en fin de traiteme
 
         <form method="post" action="login.php">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Pseudo</label>
+            <label  style="font-size:25px" for="exampleInputEmail1" class="form-label"><strong>Pseudo</strong></label>
             <input type="text" class="form-control" name="pseudo" aria-describedby="emailHelp" required>
 
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Mot de Passe</label>
+            <label style="font-size:25px" for="exampleInputPassword1" class="form-label"><strong>Mot de Passe</strong></label>
             <input type="password" class="form-control" name="mdp" id="exampleInputPassword1" required>
           </div>
           <button type="submit" name="valider" class="btn btn-primary">Se connecter</button>
