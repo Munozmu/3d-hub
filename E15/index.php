@@ -62,7 +62,12 @@
     <a class="hypertext" href="login/login.php">Se connecter</a>&nbsp;&nbsp;
     <a class="hypertext" href="login/register.php">S'inscrire</a>
   </div>
+<<<<<<< Updated upstream:E15/index.php
  <img class="IMG_3DHUB" src="images/3DHUB_index_logo_white.png" />
+=======
+ <img class="IMG_3DHUB" src="images/"3DHUB_Trans />
+
+>>>>>>> Stashed changes:index.php
   <div class="question">Que recherchez vous ?</div>
   <div class="proposition1">Je veux proposer mes<br>services d'impressions</div>
   <div class="proposition2">Je cherche à imprimer une<br>pièce spécifique</div>
