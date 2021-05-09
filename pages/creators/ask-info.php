@@ -29,14 +29,13 @@ $id = $_GET['id']; // on récupère les données dans l'url
 $response = mysqli_query($mysqli, 'SELECT * FROM `asks` WHERE ID = "' . $id . '" ');
 $donnees = mysqli_fetch_assoc($response);
 
-$bestProposition = mysqli_fetch_assoc(mysqli_query($mysqli, 'SELECT MIN(valu), member FROM `proposition` WHERE id_ask = "' . $id . '" GROUP BY valu'));
-
-
+$bestPropositon = mysqli_fetch_assoc(mysqli_query($mysqli, 'SELECT * FROM `proposition` ORDER BY valu' ));
 ?>
 <!doctype html>
 <html lang="fr">
 
 <head>
+    <link rel="icon" href="../../images/icon.png" />
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -67,118 +66,111 @@ $bestProposition = mysqli_fetch_assoc(mysqli_query($mysqli, 'SELECT MIN(valu), m
             </div>
         </div>
 
+        <!-- Affichage de la pièce -->
         <div class="row">
             <div class="col-12">
                 <h4>Pièce :</h4>
-                <div id="<?php echo $donnees['stl_path']; ?>" style="margin-top: 10px; height: 500px; border: 1px gray solid;" class="m-3"></div>
+                <div id="test" style="margin-top: 10px; height: 500px; border: 1px gray solid;" class="m-3"></div>
                 <p><?php echo $donnees['stl_path']; ?></p>
                 <a href="../../stl/stl/trepied.STL"><button type="button" class="btn btn-primary">Télécharger le .STL de la pièce</button></a>
 
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 mt-4">
+        <!-- Affichage de la meilleure proposition -->
+        <div class="row mt-5">
+            <div class="col-12">
                 <h2>Meilleure proposition :</h2>
-                
-                <!-- Affichage des propositions existantes pour cette demande -->
-                <h1><?php echo $bestProposition['valu']; ?></h1>
-                
+                <h1><?php echo $bestPropositon['valu']; ?> €</h1>
+                <small>Par : <?php echo $bestPropositon['member']; ?></small>
+                 
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="row mt-5">
-                        <div class="col-6">
-                            <form method="POST" enctype="multipart/form-data">
-                                <p class="text-danger">Attention ! Votre proposition doit être inférieure à celle en cours.</p>
-                                <div class="input-group mb-3">
-                                    <input type="text" name="price_value" class="form-control" placeholder="Prix proposé" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                                    <span class="input-group-text" id="basic-addon2">€</span>
-                                </div>
+        </div>
 
-                                <input type="submit" name="envoyer" value="Faire la proposition">
-                            </form>
-                        </div>
+        <!-- Faire une nouvelle demande -->
+        <div class="row">
+            <div class="col-12">
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <form method="POST" enctype="multipart/form-data">
+                        <p class="text-danger">Attention ! Votre proposition doit être inférieure à celle en cours.</p>
+                            <div class="input-group mb-3">
+                                <input type="text" name="price_value" class="form-control" placeholder="Prix proposé" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                                <span class="input-group-text" id="basic-addon2">€</span>
+                            </div>
+                            <input type="submit" name="envoyer" value="Faire la proposition">
+                        </form>
                     </div>
-                    <?php
-                    if (isset($_POST['price_value'])) {
+                </div>
+                <?php
+                if (isset($_POST['price_value'])) {
 
-                        //  reste
-                        $mysqli = new mysqli(SERVEUR, LOGIN, MDP, BDD);
-                        $mysqli->set_charset("utf8");
-                        $requete = 'INSERT INTO `proposition` (`id`, `id_ask`, `valu`, `member`) VALUES (NULL, "' . $id . '", "' . $_POST['price_value'] . '", "' . $Pseudo . '");';
-                        $resultat = $mysqli->query($requete);
-                        if ($resultat)
-                            echo "<p>La proposition a été ajoutée</p>";
-                        else
-                            echo "<p>Erreur</p>";
+                    //  reste
+                    $mysqli = new mysqli(SERVEUR, LOGIN, MDP, BDD);
+                    $mysqli->set_charset("utf8");
+                    $requete = 'INSERT INTO `proposition` (`id`, `id_ask`, `valu`, `member`) VALUES (NULL, "' . $id . '", "' . $_POST['price_value'] . '", "' . $Pseudo . '");';
+                    $resultat = $mysqli->query($requete);
+                    if ($resultat)
+                        echo '<p class="text-success">La proposition a été ajoutée</p>';
+                    else
+                        echo "<p>Erreur</p>";
+                }
+                ?>
+            </div>
+        </div>
+
+        <!-- Affichage des propositions existantes pour cette demande -->
+        <div class="row">
+            <div class="col-12">
+                
+                <div class="row mt-3">
+                    <?php
+                    include("../../php/connect.php");
+                    try {
+                        // On se connecte à MySQL
+                        $mysqli = mysqli_connect(SERVEUR, LOGIN, MDP, BDD);
+                    } catch (Exception $e) {
+                        // En cas d'erreur, on affiche un message et on arrête tout
+                        die('Erreur : ' . $e->getMessage());
                     }
+                    $reponse = mysqli_query($mysqli, 'SELECT * FROM `proposition` WHERE id_ask = "' . $id . '" ORDER BY valu');
+                    // On affiche chaque entrée une à une
+                    while ($donnees = $reponse->fetch_array()) {
+                    ?>
+                        <div class="card mt-2">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6">Proposition : <?php echo $donnees['valu']; ?> €</div>
+                                    <div class="col-6"> Par : <?php echo $donnees['member']; ?></div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+
+                    $reponse->close(); // Termine le traitement de la requête
+
                     ?>
                 </div>
             </div>
+            <div class="row" style="height: 200px;"></div>
+        </div>
 
-            <div class="row mt-5">
-                <div class="col-12">
-                    <!-- Affichage des propositions existantes pour cette demande -->
-                    <p>Propositions existantes :</p>
-                    <div class="row mt-3">
-                        <?php
-                        include("../../php/connect.php");
-                        try {
-                            // On se connecte à MySQL
-                            $mysqli = mysqli_connect(SERVEUR, LOGIN, MDP, BDD);
-                        } catch (Exception $e) {
-                            // En cas d'erreur, on affiche un message et on arrête tout
-                            die('Erreur : ' . $e->getMessage());
+
+
+
+        <script src="../../stl/stl_viewer.min.js"></script>
+                <script>
+                    var stl_viewer = new StlViewer(
+                        document.getElementById("test"), {
+                            models: [{
+                                id: 1,
+                                filename: "../pages/creators/upload/<?php echo $donnees['stl_path']; ?>"
+                            }]
                         }
-
-                        // Si tout va bien, on peut continuer
-
-                        // On récupère tout le contenu de la table asks où l'utilisateur est le même
-                        $reponse = mysqli_query($mysqli, 'SELECT * FROM `proposition` WHERE id_ask = "' . $id . '" ORDER BY valu');
-                        //$reponse = $bdd->query('SELECT * FROM `asks` WHERE USER = "' . $Pseudo . '"');
-
-                        while ($donnees = $reponse->fetch_array()) {
-                        ?>
-                            <div class="card mt-2">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <h4><?php echo $donnees['valu']; ?> €</h4>
-                                        </div>
-                                        <div class="col-6"> Par : <?php echo $donnees['member']; ?></div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php
-                        }
-
-                        $reponse->close(); // Termine le traitement de la requête
-
-                        ?>
-                    </div>
-                </div>
-                <div class="row" style="height: 200px;"></div>
-            </div>
-
-
-
-
-            <script src="../../stl/stl_viewer.min.js"></script>
-            <script>
-                var stl_viewer = new StlViewer(
-                    document.getElementById("<?php echo $donnees['stl_path']; ?>"), {
-                        models: [{
-                            id: 1,
-                            filename: "../pages/creators/upload/<?php echo $donnees['stl_path']; ?>"
-                        }]
-                    }
-                );
-            </script><!-- RTFM, Doc du plugin : https://www.viewstl.com/plugin/-->
+                    );
+                </script>
 </body>
-
-
-
 </html>
 </div>
 </div>

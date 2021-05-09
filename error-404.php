@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="fr">
-    <head></head>
+    <head><link rel="icon" href="images/icon.png" /></head>
     <body>
         <h1>Ou tu vas toi ?</h1>
         <h3>Non mais tié fada</h3>

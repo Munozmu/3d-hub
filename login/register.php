@@ -12,6 +12,7 @@
 
   <title>Inscription</title>
 </head>
+<link rel="icon" href="../images/icon.png" />
 
 <body>
   <nav class="navbar navbar-light bg-light">

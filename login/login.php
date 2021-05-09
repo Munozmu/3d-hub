@@ -9,6 +9,7 @@ session_start();//session_start() combiné à $_SESSION (voir en fin de traiteme
 <html lang="fr">
 
 <head>
+  <link rel="icon" href="../images/icon.png" />
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

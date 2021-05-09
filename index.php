@@ -62,22 +62,14 @@
     <a class="hypertext" href="login/login.php">Se connecter</a>&nbsp;&nbsp;
     <a class="hypertext" href="login/register.php">S'inscrire</a>
   </div>
-  <h1 class="titre"><a class="HUB" href="index.php">3DHUB</a></h1>
-
+ <img class="IMG_3DHUB" src="images/3DHUB_index_logo_white.png" />
   <div class="question">Que recherchez vous ?</div>
   <div class="proposition1">Je veux proposer mes<br>services d'impressions</div>
   <div class="proposition2">Je cherche à imprimer une<br>pièce spécifique</div>
   <div class="bouton1"><a class="btn btn-primary" href="./login/register.php">Proposer mes services</a></div>
   <div class="bouton2"><a class="btn btn-primary" href="./login/register.php">Faire une demande</a></div>
 
-  <div class="test"> Test </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-          <p>test</p>
-      </div>
-    </div>
-  </div>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 

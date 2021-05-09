@@ -1,9 +1,5 @@
 <?php
-
-/*************************
- *  Page: masks.php
- *  Page encodée en UTF-8
- **************************/
+// Début de la page allasks, récupération des données
 include("../../php/connect.php");
 session_start(); //session_start() combiné à $_SESSION (voir en fin de traitement du formulaire) nous permettra de garder le pseudo en sauvegarde pendant qu'il est connecté, si vous voulez que sur une page, le pseudo soit (ou tout autre variable sauvegardée avec $_SESSION) soit retransmis, mettez session_start() au début de votre fichier PHP, comme ici
 if (!isset($_SESSION['pseudo'])) {
@@ -29,6 +25,7 @@ $info = mysqli_fetch_assoc($req);
 <html lang="fr">
 
 <head>
+    <link rel="icon" href="../../images/icon.png" />
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,31 +47,31 @@ $info = mysqli_fetch_assoc($req);
             </div>
         </div>
 
-        <!-- Affichage des demandes de l'utilisateur -->
+        <!-- Affichage des demandes des utilisateurs -->
         <div class="row mt-3">
             <?php
             include("../../php/connect.php");
             try {
-                // On se connecte à MySQL
                 $mysqli = mysqli_connect(SERVEUR, LOGIN, MDP, BDD);
             } catch (Exception $e) {
-                // En cas d'erreur, on affiche un message et on arrête tout
                 die('Erreur : ' . $e->getMessage());
             }
-
-            // Si tout va bien, on peut continuer
-
-            // On récupère tout le contenu de la table asks où l'utilisateur est le même
             $reponse = mysqli_query($mysqli, 'SELECT * FROM `asks`');
-            //$reponse = $bdd->query('SELECT * FROM `asks` WHERE USER = "' . $Pseudo . '"');
-
-            // On affiche chaque entrée une à une
             while ($donnees = $reponse->fetch_array()) {
             ?>
                 <div class="col-3 mt-3">
                     <div class="card">
                         <div class="card-body">
-                            <div style="width: 100%; height: 200px;" class="mb-3" id="<?php echo $donnees['stl_path']; ?>"></div>
+                            <?php 
+                                if ($donnees['stl_path'] == "") {
+                                    echo '<img src="../../images/3DHUB_index_logo_simple_black.png"  class="card-img-top" alt="...">';
+                                }
+                                else {
+                                    $chemin = $donnees["stl_path"];
+                                    echo '<div style="width: 100%; height: 200px;" class="mb-3" id="',$chemin,'" ></div>';
+                                }
+                            ?>
+                            
                             <h5 class="card-title"><?php echo $donnees['title']; ?></h5>
                             <p class="card-text"><?php echo $donnees['description']; ?></p>
                             <p class="text-muted">De : <?php echo $donnees['user']; ?></p>
